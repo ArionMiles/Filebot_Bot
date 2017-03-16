@@ -21,16 +21,16 @@ dispatcher = updater.dispatcher
 
 # Real stuff
 def start(bot, update):
-	bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
+	bot.sendChatAction(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
 	bot.sendMessage(chat_id=update.message.chat_id, text="Hi!")
 
 def chatid(bot, update):
-	bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
+	bot.sendChatAction(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
 	chatid = str(update.message.chat_id)
 	bot.sendMessage(chat_id=update.message.chat_id, text=chatid)
 
 def unknown(bot, update):
-	bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
+	bot.sendChatAction(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
 	bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't get that.")
 
 # Handlers
