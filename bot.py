@@ -1,6 +1,7 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
 import os
+import ConfigParser
 # Read settings from config file
 config = configparser.ConfigParser()
 config.read('bot.ini')
