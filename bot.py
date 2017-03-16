@@ -27,7 +27,7 @@ def start(bot, update):
 def chatid(bot, update):
 	#bot.sendChatAction(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
 	chatid = str(update.message.chat_id)
-	bot.sendMessage(chat_id=update.message.chat_id, text="Your Chat ID is: "+chatid)
+	bot.sendMessage(chat_id=update.message.chat_id, text="Your Chat ID is: "+ "*" + chatid + "*", parse_mode='markdown')
 
 def intro(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text= "I'm a telegram Bot for Filebot!")
