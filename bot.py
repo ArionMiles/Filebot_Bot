@@ -30,7 +30,7 @@ def chatid(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="Your Chat ID is: "+chatid)
 
 def intro(bot, update):
-	bot.sendMessage(chat_id=update,message.chat_id, text= "I'm a telegram Bot for Filebot!")
+	bot.sendMessage(chat_id=update.message.chat_id, text= "I'm a telegram Bot for Filebot!")
 
 def unknown(bot, update):
 	#bot.sendChatAction(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
