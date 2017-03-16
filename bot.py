@@ -3,9 +3,9 @@ import logging
 import os
 import ConfigParser
 # Read settings from config file
-config = configparser.ConfigParser()
+config = ConfigParser.RawConfigParser()
 config.read('bot.ini')
-TOKEN = config['Bot']['TOKEN']
+TOKEN = config.get('BOT', 'TOKEN')
 PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(TOKEN)
 
