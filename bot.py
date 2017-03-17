@@ -39,15 +39,12 @@ start_handler = CommandHandler('start', start)
 chatid_handler = CommandHandler('chatid', chatid)
 intro_handler = MessageHandler('Who are you?', intro)
 unknown_command = MessageHandler(Filters.command, unknown)
-unknown_message = MessageHandler(Filters.text, unknown)
 
 # Dispatchers
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(intro_handler)
-
 dispatcher.add_handler(chatid_handler)
-dispatcher.add_handler(unknown_message)
 dispatcher.add_handler(unknown_command)
 
 updater.start_polling()
