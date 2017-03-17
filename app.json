@@ -2,6 +2,7 @@
   "name": "Filebot_Bot Backend",
   "description": "Backend code for @Filebot_Bot telegram Bot.",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
+  "logo": "http://www.filebot.net/images/filebot.logo.png",
+  "repository": "https://github.com/ArionMiles/filebot-telegram/",
   "keywords": ["python", "telegram", "python-telegram-bot" ]
 }
