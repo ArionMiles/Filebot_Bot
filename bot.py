@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, RegexHandler
 import logging
 import os
 import ConfigParser
@@ -10,12 +10,12 @@ PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(TOKEN)
 
 # Setting Webhook
-updater.start_webhook(listen="0.0.0.0",
-                      port=PORT,
-                      url_path=TOKEN)
-updater.bot.setWebhook("https://filebot-backend.herokuapp.com/" + TOKEN)
+#updater.start_webhook(listen="0.0.0.0",
+#                      port=PORT,
+#                      url_path=TOKEN)
+#updater.bot.setWebhook("https://filebot-backend.herokuapp.com/" + TOKEN)
 
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
+#logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 
 dispatcher = updater.dispatcher
 
@@ -29,7 +29,7 @@ dispatcher.add_handler(start_handler)
 def intro(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="I'm a telegram Bot for Filebot!")
 
-intro_handler = MessageHandler('Who are you?', intro)
+intro_handler = RegexHandler('Who are you?', intro)
 dispatcher.add_handler(intro_handler)
 
 def chatid(bot, update):
@@ -46,6 +46,8 @@ unknown_handler = MessageHandler(Filters.command, unknown)
 dispatcher.add_handler(unknown_handler)
 # Handlers
 # Dispatchers
+
+#dp.add_handler(RegexHandler(r"$What's your name\?^", callback)) FROM jh0ker
 
 updater.start_polling()
 updater.idle()
