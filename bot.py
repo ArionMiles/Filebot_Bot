@@ -22,28 +22,30 @@ dispatcher = updater.dispatcher
 # Real stuff
 def start(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="Hi! I'm a telegram Bot for Filebot!")
+
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
-
-
 def intro(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="I'm a telegram Bot for Filebot!")
+
 intro_handler = MessageHandler('Who are you?', intro)
 dispatcher.add_handler(intro_handler)
 
 def chatid(bot, update):
 	chatid = str(update.message.chat_id)
 	bot.sendMessage(chat_id=update.message.chat_id, text="Your Chat ID is: "+ "*" + chatid + "*", parse_mode='markdown')
+
 chatid_handler = CommandHandler('chatid', chatid)
 dispatcher.add_handler(chatid_handler)
 
 def unknown(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't get that.")
-unknown_command = MessageHandler(Filters.command, unknown)
-dispatcher.add_handler(unknown_command)
+
+unknown_handler = MessageHandler(Filters.command, unknown)
+dispatcher.add_handler(unknown_handler)
 # Handlers
 # Dispatchers
 
 updater.start_polling()
-#updater.idle()
+updater.idle()
