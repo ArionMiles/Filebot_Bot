@@ -49,8 +49,5 @@ dispatcher.add_handler(chatid_handler)
 dispatcher.add_handler(unknown_handler)
 dispatcher.add_handler(unknown_message)
 
-
-#dp.add_handler(RegexHandler(r"$What's your name\?^", callback)) FROM jh0ker
-
 updater.start_polling()
 updater.idle()
