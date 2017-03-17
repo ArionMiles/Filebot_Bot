@@ -35,8 +35,8 @@ def intro(bot, update):
 def unknown(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't get that.")
 
-unkown_handler = MessageHandler(Filters.command, unknown)
-dispatcher.add_handler(unkown_handler)
+unknown_handler = MessageHandler(Filters.command, unknown)
+dispatcher.add_handler(unknown_handler)
 
 
 # Handlers
