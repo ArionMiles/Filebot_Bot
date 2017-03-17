@@ -37,14 +37,14 @@ def unknown(bot, update):
 start_handler = CommandHandler('start', start)
 chatid_handler = CommandHandler('chatid', chatid)
 intro_handler = MessageHandler('Who are you?', intro)
-#unknown_command = MessageHandler(Filters.command, unknown)
+unknown_handler = MessageHandler(Filters.command, unknown)
 #unknown_message = MessageHandler(Filters.text, unknown)
 
 # Dispatchers
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(chatid_handler)
 dispatcher.add_handler(intro_handler)
-#dispatcher.add_handler(unknown_command)
+dispatcher.add_handler(unknown_handler)
 #dispatcher.add_handler(unknown_message)
 
 updater.start_polling()
