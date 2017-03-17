@@ -51,4 +51,4 @@ dispatcher.add_handler(unknown_message)
 dispatcher.add_handler(unknown_command)
 
 updater.start_polling()
-updater.idle()
+#updater.idle()
