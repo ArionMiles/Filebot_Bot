@@ -6,7 +6,7 @@ import ConfigParser
 config = ConfigParser.RawConfigParser()
 config.read('bot.ini')
 TOKEN = config.get('BOT', 'TOKEN')
-#APP_NAME = config.get('BOT', 'APP_NAME')
+APP_NAME = config.get('BOT', 'APP_NAME')
 PORT = int(os.environ.get('PORT', '5000'))
 updater = Updater(TOKEN)
 
@@ -14,7 +14,7 @@ updater = Updater(TOKEN)
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=TOKEN)
-updater.bot.setWebhook("https://filebot-backend.heroku.com" + TOKEN)
+updater.bot.setWebhook(APP_NAME + TOKEN)
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 
