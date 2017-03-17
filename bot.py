@@ -30,21 +30,27 @@ def chatid(bot, update):
 def intro(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="I'm a telegram Bot for Filebot!")
 
+#def unknown(bot, update):
+#	bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't get that.")
 def unknown(bot, update):
 	bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't get that.")
+
+unkown_handler = MessageHandler(Filters.command, unknown)
+dispatcher.add_handler(unkown_handler)
+
 
 # Handlers
 start_handler = CommandHandler('start', start)
 chatid_handler = CommandHandler('chatid', chatid)
 intro_handler = MessageHandler('Who are you?', intro)
-unknown_handler = MessageHandler(Filters.command, unknown)
+#unknown_handler = MessageHandler(Filters.command, unknown)
 #unknown_message = MessageHandler(Filters.text, unknown)
 
 # Dispatchers
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(chatid_handler)
 dispatcher.add_handler(intro_handler)
-dispatcher.add_handler(unknown_handler)
+#dispatcher.add_handler(unknown_handler)
 #dispatcher.add_handler(unknown_message)
 
 updater.start_polling()
